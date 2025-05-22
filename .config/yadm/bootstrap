@@ -30,3 +30,56 @@ check_macos() {
         exit 1
     }
 }
+
+# Load configuration
+load_config() {
+    cd "$HOME"
+    source "$HOME"/.xdg.dirs
+    source "$XDG_CONFIG_HOME"/shell/xdg
+    chmod 700 "$XDG_CONFIG_HOME"
+}
+
+# Install brew dependencies
+install_brew_deps() {
+    log "INFO" "Installing brew dependencies..."
+    /opt/homebrew/bin/brew bundle
+    log "SUCCESS" "Brew dependencies installation completed"
+}
+
+# Apply defaults
+apply_defaults() {
+    log "INFO" "Applying defaults..."
+    find "$XDG_CONFIG_HOME" -type f -name "defaults" -executable -exec /bin/bash -c "{} --no-restart" \;
+    log "SUCCESS" "Defaults applied successfully"
+}
+
+# Configure docker-buildx
+setup_docker_buildx() {
+    log "INFO" "Configuring docker-buildx..."
+    mkdir -p "$DOCKER_CONFIG/cli-plugins"
+    ln -sfn "$HOMEBREW_PREFIX/opt/docker-buildx/bin/docker-buildx" "$DOCKER_CONFIG/cli-plugins/docker-buildx"
+    log "SUCCESS" "Docker-buildx configured"
+}
+
+# Configure yadm
+setup_yadm() {
+    log "INFO" "Configuring yadm sparse-checkout..."
+    /opt/homebrew/bin/yadm sparse-checkout init
+    /opt/homebrew/bin/yadm sparse-checkout set --no-cone '/*' '!README.md' '!LICENSE' '!.editoconfig'
+    log "SUCCESS" "Yadm configured"
+}
+
+main() {
+    log "INFO" "Starting setup script..."
+
+    check_macos
+    load_config
+    install_brew_deps
+    apply_defaults
+    setup_docker_buildx
+    setup_yadm
+
+    log "SUCCESS" "Setup completed successfully"
+}
+
+main

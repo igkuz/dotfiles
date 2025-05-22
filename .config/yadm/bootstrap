@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+# Constants
+readonly DOWNLOADS_TIMEOUT=300
+
+# Logger function
+log() {
+    local level=$1
+    shift
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] [$level] $*"
+}
+
+# Error handler
+error_handler() {
+    local line_num=$1
+    local error_code=$2
+    log "ERROR" "Failed at line ${line_num} with error code ${error_code}"
+    exit "${error_code}"
+}
+
+trap 'error_handler ${LINENO} $?' ERR
+
+# Check if running on macOS
+check_macos() {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        log "ERROR" "This script is intended for macOS only"
+        exit 1
+    }
+}

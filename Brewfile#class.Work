@@ -1,0 +1,114 @@
+# Keep here just to make `brew bundle cleanup` work
+brew "mas"
+brew "yadm"
+brew "mackup"
+
+# GNU Core Utilities
+brew "coreutils"
+brew "binutils"
+# brew "findutils"
+brew "moreutils"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnutls"
+brew "gnupg"
+brew "gzip"
+# brew "bash"
+# brew "lsof" 
+
+# Essential CLI tools
+brew "nvim"
+brew "wget"
+brew "openssl"
+brew "xz"
+brew "zlib"
+brew "git"
+brew "git-lfs"
+brew "tig"
+brew "jq"
+brew "fzf"
+
+# Modern Unix tools
+brew "eza"
+brew "bat"
+brew "tealdeer"
+# brew "ripgrep"
+# brew "fd"
+
+# Development tools
+brew "mise"
+brew "scmpuff"
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
+brew "docker-compose-completion"
+brew "colima"
+brew "qemu"
+# brew "aider"
+
+# System utilities
+brew "xdg-ninja"
+brew "pcsc-lite"
+
+# Job-specific applications
+brew "awscli"
+brew "granted"
+
+# Fonts
+cask "font-fira-code-nerd-font"
+
+# QuickLook plugins
+cask "quicklook-json"
+cask "qlmarkdown"
+cask "quicklook-csv"
+cask "qlimagesize"
+
+# Browsers
+cask "microsoft-edge"
+cask "firefox"
+
+# Essential applications
+cask "appcleaner"
+cask "1password@7"
+
+# Development applications
+cask "iterm2"
+cask "visual-studio-code"
+cask "zed"
+cask "proxyman"
+
+# Productivity and UI enhancements
+# cask "sensiblesidebuttons" # this might be interesting
+cask "bartender"
+cask "cleanshot"
+
+# Communication tools
+cask "zoom"
+
+# Media applications
+cask "spotify"
+cask "vlc"
+
+# Security
+
+# Job-specific applications
+cask "openvpn-connect"
+cask "aws-vault"
+
+# Utility Apps from Mac App Store
+mas "The Unarchiver", id: 425424353
+
+# Productivity Suite from Mac App Store
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+
+# Communication and Social Media from Mac App Store
+mas "Telegram", id: 747648890
+mas "Slack", id: 803453959
+
+# Information and News from Mac App Store
+mas "Perplexity", id: 6714467650
+
+# Security and Privacy from Mac App Store
+mas "Outline", id: 1356178125

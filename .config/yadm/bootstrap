@@ -28,7 +28,6 @@ check_macos() {
     if [[ "$OSTYPE" != "darwin"* ]]; then
         log "ERROR" "This script is intended for macOS only"
         exit 1
-    }
 }
 
 # Load configuration

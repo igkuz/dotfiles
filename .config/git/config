@@ -33,11 +33,18 @@
   filelog = log -u
   fl = log -u
   dlc = diff --cached HEAD^
+[commit]
+  gpgsign = true
+[tag]
+  gpgSign = true
+[gpg]
+  program = gpg
 [user]
 	name = Igor Kuznetsov
 	email = igkuznetsov@gmail.com
+	signingkey = 9CFDFFE3D08D3F5412644D3013C3AA2FC36488A4
 [core]
-	editor = vim -f
+	editor = nvim
 	excludesfile = ~/.gitignore
 [github]
 	user = igkuz

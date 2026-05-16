@@ -1,0 +1,1 @@
+/Users/igkuz/apps/dot_files/zsh/.zshrc

@@ -27,6 +27,8 @@ brew "git-lfs"
 brew "tig"
 brew "jq"
 brew "fzf"
+brew "gh"
+brew "antidote"
 
 # Modern Unix tools
 brew "eza"
